@@ -1,6 +1,6 @@
 class basisstrat:
-    bool COOPERATE = True
-    bool DEFECT = False
+    COOPERATE: bool = True
+    DEFECT: bool = False
 
-    def act(history):
-        return COOPERATE
+    def act(self, history_self, history_opponent):
+        return self.COOPERATE
