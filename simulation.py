@@ -1,6 +1,16 @@
-
+import importlib
+import os
 # Ruleset
 # Variablen definiert
+
+strategie_liste = []
+strat_dir = "strat"
+for filename in os.listdir(strat_dir):
+    modulname = f"{strat_dir}.{filename[:-3]}"
+    modul = importlib.import_module(modulname)
+    klassename = filename[:-3]
+    strategie_klasse = getattr(modul, klassename)
+    strategie_liste.append(strategie_klasse())
 
 roundanzahl = 50 #Input von der Konsole
 
