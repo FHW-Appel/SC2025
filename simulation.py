@@ -31,21 +31,22 @@ def eval_ruleset(strategy_1: bool, strategy_2: bool):
 
 def schleife(spielanzahl, rundenanzahl):
     ergebnis = [] # ergebnis[strategieindex] = [durchschnittliche Punkeanzahl, durchsch...]
-    for strategie1 in strategie_liste:
+    for st1ind, strategie1 in enumerate(strategie_liste):
         ergebnis.append([])
-        for strategie2 in strategie_liste:
+        for st2ind, strategie2 in enumerate(strategie_liste):
             punkte_der_strategie1 = []
-            for ind in range(spielanzahl):
+            for spiel_ind in range(spielanzahl):
                 history1 = []
                 history2 = []
-                punkte_der_strategie1 = 0
+                punkte_der_strategie1.append(0)
                 for round in range(rundenanzahl):
                     st1acted = strategie1.act(history1, history2) # st1acted = how strategy 1 acted
                     st2acted = strategie2.act(history2, history1)
                     history1.append(st1acted)
                     history2.append(st2acted)
-                    punkte_der_strategie1 += eval_ruleset(st1acted, st2acted)[0]
-                
+                    punkte_der_strategie1[spiel_ind] += eval_ruleset(st1acted, st2acted)[0]
+            ergebnis[st1ind].append(sum(punkte_der_strategie1)/spielanzahl)
+    return ergebnis
 
                     
 #def test():

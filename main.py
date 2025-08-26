@@ -1,3 +1,6 @@
 from simulation import *
 
-schleife(1,10)
+ergebnis = schleife(6, 30)
+
+for st1lis in ergebnis:
+    print(st1lis)
