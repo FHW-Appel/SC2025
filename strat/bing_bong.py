@@ -1,7 +1,9 @@
+# STATIC MEAN
 from basisstrat import basisstrat
 
 class bing_bong(basisstrat):
-
+    STATIC = True
+    MEAN = True
     pattern = "011000100110100101101110011001110010000001100010011011110110111001100111"
 
     def act(self, history_self, history_opponent):
