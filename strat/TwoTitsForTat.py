@@ -1,6 +1,6 @@
 from basisstrat import basisstrat
 
-class TowTitsForTat(basisstrat):
+class TwoTitsForTat(basisstrat):
     """
     First cooperates, then defects twice if the
     opponent has defected in the last two moves.
