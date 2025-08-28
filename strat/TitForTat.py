@@ -1,6 +1,6 @@
 from basisstrat import basisstrat
 
-class vincent(basisstrat):
+class TitForTat(basisstrat):
 
     def act(self, history_self, history_opponent):
         if len(history_self) == 0:
