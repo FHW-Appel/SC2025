@@ -3,6 +3,11 @@ from simulation import *
 from random import choice, randint
 
 class zurueckschauend(basisstrat):
+    retaliating = True
+    random = True
+    exploiting = True
+    dynamic = True
+    mean = True
 
     def act(self, history_self, history_opponent):
         roundcounter = len(history_opponent)
