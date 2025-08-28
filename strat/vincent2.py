@@ -24,7 +24,10 @@ class vincent2(basisstrat):
         if defections == 1 and history_opponent[-1] == self.COOPERATE:
             return self.COOPERATE
         
-        if defections >= 2 or history_opponent[-1] == self.DEFECT and random.random() > 0.1:
+        if history_opponent[-1] == self.DEFECT or history_opponent[-2] == self.DEFECT:
+            return self.DEFECT
+
+        if defections >= 5 or history_opponent[-1] == self.DEFECT and random.random() > 0.1:
             return self.DEFECT
         
         return self.COOPERATE
