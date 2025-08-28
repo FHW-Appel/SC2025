@@ -62,15 +62,13 @@ def schleife(rundenanzahl):
             colors.append("red")
 
 
-    scores_with_names_colors = sorted(zip(total_scores, strat_names, colors), reverse=True)
+    scores_with_names_colors = sorted(zip(total_scores, strat_names, colors), reverse=False)
     sorted_scores, sorted_names, sorted_colors = zip(*scores_with_names_colors)
 
     plt.figure(figsize=(10, 6))
-    plt.bar(sorted_names, sorted_scores, color=sorted_colors)
-    plt.xlabel('Strategie')
-    plt.ylabel('Gesamtpunkte')
-    plt.title('Punktzahlen der Strategien (absteigend)')
-    plt.xticks(rotation=45)
+    plt.barh(sorted_names, sorted_scores, color=sorted_colors)
+    plt.title('Erreichte Punkte', fontsize=20)  # Größere Schrift für den Titel
+    plt.yticks(fontsize=16)  # Größere Schrift für die Strategienamen
     plt.tight_layout()
     plt.show()
 
