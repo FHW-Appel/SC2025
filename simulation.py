@@ -42,7 +42,7 @@ def schleife(rundenanzahl):
             row.append(score)
         ergebnis.append(row)
 
-    total_scores = [sum(row) for row in ergebnis]
+    total_scores = [round(sum(row)/rundenanzahl/len(strategie_liste)/5*1000) for row in ergebnis]
     for i, total in enumerate(total_scores):
         print(f"{strategie_liste[i].__class__.__name__}: Gesamtpunkte: {total}")
 

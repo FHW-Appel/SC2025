@@ -1,3 +1,3 @@
 from simulation import *
 
-ergebnis = schleife(5000)
+ergebnis = schleife(200)
