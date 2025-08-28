@@ -3,6 +3,6 @@ from basisstrat import basisstrat
 
 class random_strat(basisstrat):
     STATIC = True
-    random = True
+    RANDOM = True
     def act(self, history_self, history_opponent):
         return self.random()
