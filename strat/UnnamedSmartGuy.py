@@ -2,7 +2,7 @@
 from basisstrat import basisstrat
 import random
 
-class vincent3(basisstrat):
+class UnnamedSmartGuy(basisstrat):
     STATIC = False
     DYNAMIC = True
     MEAN = False
