@@ -3,7 +3,14 @@ from simulation import *
 from random import choice, randint
 
 class zurueckschauend(basisstrat):
-
+    STATIC = False
+    DYNAMIC = True
+    MEAN = True
+    NICE = False
+    RANDOM = True
+    GRUDGING = False
+    RETALIATING = True
+    FORGIVING = True
     def act(self, history_self, history_opponent):
         roundcounter = len(history_opponent)
         if roundcounter == 0:
