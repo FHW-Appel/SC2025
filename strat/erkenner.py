@@ -7,9 +7,9 @@ class erkenner(basisstrat):
             return self.COOPERATE
         elif len(history_self) == 1:
             return self.DEFECT
-        elif len(history_self) == 1:
+        elif len(history_self) == 2:
             return self.COOPERATE
-        elif len(history_self) == 1:
+        elif len(history_self) == 3:
             return self.COOPERATE
         elif history_self[:-1] == history_opponent[1:]:
             return self.COOPERATE
