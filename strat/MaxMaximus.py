@@ -1,7 +1,16 @@
+# dynamic nice forgiving retaliating
+
 from basisstrat import basisstrat
 
 class MaxMaximus(basisstrat):
-
+    STATIC = False
+    DYNAMIC = True
+    MEAN = False
+    NICE = True
+    RANDOM = False
+    GRUDGING = False
+    RETALIATING = True
+    FORGIVING = True
     def act(self, history_self, history_opponent):
         if len(history_opponent) >= 2:            
             if history_opponent[-1] == self.COOPERATE and history_opponent[-2] == self.COOPERATE:

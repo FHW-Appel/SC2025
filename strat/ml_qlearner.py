@@ -2,6 +2,7 @@ from basisstrat import basisstrat
 import random
 
 class ml_qlearner(basisstrat):
+    NICE = False
     def __init__(self):
         self.q_table = {}
         self.learning_rate = 0.01

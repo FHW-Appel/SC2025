@@ -1,7 +1,7 @@
 from basisstrat import basisstrat
 
 class erkenner(basisstrat):
-
+    NICE = False
     def act(self, history_self, history_opponent):
         if len(history_self) == 0:
             return self.COOPERATE

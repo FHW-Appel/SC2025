@@ -1,5 +1,6 @@
 import importlib
 import os
+import matplotlib.pyplot as plt  # matplotlib importieren
 
 strategie_liste = []
 strat_dir = "strat"
@@ -49,5 +50,28 @@ def schleife(rundenanzahl):
     # Find the best strategy
     best_index = total_scores.index(max(total_scores))
     print(f"\nBeste Strategie: {strategie_liste[best_index].__class__.__name__} mit {total_scores[best_index]} Gesamtpunkten")
+
+    # Balkendiagramm absteigend sortiert
+    strat_names = [strategie.__class__.__name__ for strategie in strategie_liste]
+    # Ermittle die Farben für die Balken
+    colors = []
+    for strategie in strategie_liste:
+        if getattr(strategie, "NICE", True):
+            colors.append("green")
+        else:
+            colors.append("red")
+
+
+    scores_with_names_colors = sorted(zip(total_scores, strat_names, colors), reverse=True)
+    sorted_scores, sorted_names, sorted_colors = zip(*scores_with_names_colors)
+
+    plt.figure(figsize=(10, 6))
+    plt.bar(sorted_names, sorted_scores, color=sorted_colors)
+    plt.xlabel('Strategie')
+    plt.ylabel('Gesamtpunkte')
+    plt.title('Punktzahlen der Strategien (absteigend)')
+    plt.xticks(rotation=45)
+    plt.tight_layout()
+    plt.show()
+
     return ergebnis
-                    
