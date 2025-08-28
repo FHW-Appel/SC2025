@@ -16,12 +16,15 @@ class vincent2(basisstrat):
         if len(history_self) == 0:
             return self.COOPERATE
         
+        if history_self == history_opponent and history_opponent[-1:] == self.COOPERATE:
+            return self.COOPERATE
+        
         if history_self[:-1] == history_opponent[:-1] and history_opponent[-1] == self.COOPERATE:
             return self.COOPERATE
         
         defections = sum(1 for move in history_opponent if move == self.DEFECT)
         
-        if defections == 1 and history_opponent[-1] == self.COOPERATE:
+        if defections == history_opponent[-1] == self.DEFECT:
             return self.COOPERATE
         
         if history_opponent[-1] == self.DEFECT or history_opponent[-2] == self.DEFECT:
