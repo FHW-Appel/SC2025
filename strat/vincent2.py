@@ -3,9 +3,20 @@ from basisstrat import basisstrat
 import random
 
 class vincent2(basisstrat):
-   
+    STATIC = False
+    DYNAMIC = True
+    MEAN = False
+    NICE = True
+    RANDOM = False
+    GRUDGING = False
+    RETALIATING = True
+    FORGIVING = True
+    
     def act(self, history_self, history_opponent):
         if len(history_self) == 0:
+            return self.COOPERATE
+        
+        if history_self[:-1] == history_opponent[:-1] and history_opponent[-1] == self.COOPERATE:
             return self.COOPERATE
         
         defections = sum(1 for move in history_opponent if move == self.DEFECT)
@@ -15,8 +26,5 @@ class vincent2(basisstrat):
         
         if defections >= 2 or history_opponent[-1] == self.DEFECT and random.random() > 0.1:
             return self.DEFECT
-        
-        if history_self[:-1] == history_opponent[:-1] and history_opponent[-1] == self.COOPERATE:
-            return self.COOPERATE
         
         return self.COOPERATE
