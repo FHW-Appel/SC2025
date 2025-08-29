@@ -21,7 +21,6 @@ class ichglaubeselbstnichtdran(basisstrat):
         self.weights_ho = [random.uniform(-1, 1) for _ in range(self.hidden_size)]
         # Bias für Output
         self.bias_o = random.uniform(-1, 1)
-
         self.learning_rate = 0.1
 
     def sigmoid(self, x):
