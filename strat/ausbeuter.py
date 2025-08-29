@@ -13,6 +13,9 @@ class ausbeuter(basisstrat):
         if history_opponent[-1] == self.DEFECT:
             return self.DEFECT
 
+        if history_opponent[-1] == self.DEFECT and history_opponent[-2] == self.DEFECT and history_opponent[-3] == self.DEFECT:
+            return self.DEFECT
+
         if history_opponent[-1] == self.COOPERATE and history_self[-1] == self.DEFECT:
             return self.DEFECT
 
